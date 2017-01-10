@@ -1,0 +1,63 @@
+Design an O(n) algorithm for the following:
+
+In this problem we will consider matrix and vector multiplication, but with the caveat that we already know something about the matrix. In particular for any 0=i,j=n-10=i,j=n-1, we have
+Un[i][j]={01if j<iotherwise.
+Un[i][j]={0if j<i1otherwise.
+If you "draw" this matrix you will note that all of the elements below the diagonal is zero: such matrices are called upper triangular matrices. Further, all non-zero values (in the "upper triangular" part) are all 11. Note that we only need to know the value of nn to completely determine UnUn.
+
+You have to write code to solve the following computational problem: given any integer n=1n=1 and a vector xx of length nn, return the vector y=Un·xy=Un·x. Read on for more details on the format etc.
+
+Sometimes it is easier to visualize a specific UnUn. Below is U5U5 written down in a 2D-array form:
+
+                 1   1   1   1   1
+                 0   1   1   1   1
+                 0   0   1   1   1
+                 0   0   0   1   1
+                 0   0   0   0   1
+            
+Input
+You will not receive the matrix as the input.
+
+ Note
+You could build the matrix UnUn yourself but this is HIGHLY DISCOURAGED. For the biggest input, you will need about 1 TB to store this matrix explicitly!
+What you will receive is the vector itself. Each input file will contain one vector. The length of the vector will be on the first line of the file. The vector itself will take up the remaining lines. Once again, you will not have to handle the file reading and the creation of data structures. The packaged driver will handle that for you.
+
+The input file can be summed up in the following format:
+
+                n
+                x0
+                x1
+                x2
+                .
+                .
+                .
+                xn-1
+            where each xk is a value of the vector, in vertical order.
+This is an example of what a file may look like, for size five:
+
+                 5
+                43
+               234
+               -12
+                32
+               -44
+            
+Output
+The output will be the vector yy in vertical order. I.e.
+
+                y0
+                y1
+                y2
+                .
+                .
+                .
+                yn-1
+            
+The correct result for the earlier example of xx would be:
+
+               253
+               210
+               -24
+               -12
+               -44
+            

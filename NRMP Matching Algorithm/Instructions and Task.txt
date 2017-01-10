@@ -1,0 +1,73 @@
+Design a O(m*n) algorithm for the following:
+
+In this problem we will consider the extension of the stable matching problem that more closely resembles the resident matching program that NRMP  administers.
+
+We are given mm hospitals and nn medical students. Each hospital has a ranking of all the students in order of preference, and each student has a ranking of all the hospitals in order of preference. Unlike the stable matching problem, a hospital can have more than one open slots (but a student can be assigned at most one hospital). We will assume that there are more students than there are slots available in all the mm hospitals put together. The goal is to output a stable assignment of students to hospitals. Note that since there are more students than hospitals, some students may be not assigned to any hospital. Also no hospital is assigned more students than the number of openings it has.
+
+An assignment of students to hospital is stable if neither of the following situation arises:
+
+First type of instability: There are students ss and s's', and a hospital hh, so that:
+ss is assigned to hh, and
+s's' is assigned to no hospital, and
+hh prefers s's' to ss.
+Second type of instability: There are students ss and s's', and hospitals hh and h'h', so that:
+ss is assigned to hh, and
+s's' is assigned to h'h', and
+hh prefers s's' to ss, and
+s's' prefers hh to h'h'.
+
+The input is an instance of the national resident problem in a text file of the following format:
+
+                m                                     <- Number of hospitals
+                n                                     <- Number of students
+                s01  s11  s21  s31 ...  sn1              <- Preference of the 1st hospital (most preferred first, s01 is number of available slots)
+                s02  s12  s22  s32 ...  sn2              <- Preference of the 2nd hospital (most preferred first, s02 is number of available slots)
+                s03  s13  s23  s33 ...  sn3              <- Preference of the 3rd hospital (most preferred first, s03 is number of available slots)
+                s04  s14  s24  s34 ...  sn4              <- Preference of the 4th hospital (most preferred first, s04 is number of available slots)
+                .
+                .
+                .
+                s0m  s1m  s2m  s3m ...  snm              <- Preference of the mth hospital (most preferred first, s0m is number of available slots)
+                h11  h21  h31 ...  hm1              <- Preference of the 1st student (most preferred first)
+                h12  h22  h32 ...  hm2              <- Preference of the 2nd student (most preferred first)
+                h13  h23  h33 ...  hm3              <- Preference of the 3rd student (most preferred first)
+                h14  h24  h34 ...  hm4              <- Preference of the 4th student (most preferred first)
+
+                .
+                .
+                .
+                h1n  h2n  h3n ...  hmn              <- Preference of the nth student (most preferred first)
+            
+For example
+
+                3                               <- Number of hospitals
+                5                               <- Number of students
+                1   2   3   5   1   4           <- Preference of the 1st hospital (most preferred first with first index is available slot)
+                1   5   1   2   4   3           <- Preference of the 2nd hospital (most preferred first with first index is available slot)
+                2   5   2   3   1   4           <- Preference of the 3rd hospital (most preferred first with first index is available slot)
+                2   1   3                       <- Preference of the 1st student (most preferred first)
+                3   2   1                       <- Preference of the 1st student (most preferred first)
+                3   1   2                       <- Preference of the 1st student (most preferred first)
+                1   2   3                       <- Preference of the 1st student (most preferred first)
+                1   2   3                       <- Preference of the 1st student (most preferred first)
+            
+Note
+A hospital can have more than one available slot which is stored in the first index of its preference list.
+Output
+The output is an instance of stable matchings for the input in a text file of the following format:
+
+                (h1, s1)             <- Pairing of the form (h,s)
+                (h2, s2)             <- Pairing of the form (h,s)
+                (h3, s3)             <- Pairing of the form (h,s)
+                .
+                .
+                .
+                (hn, sn)             <- Pairing of the form (h,s)
+            
+For example:
+
+                (1, 5)                          <- Pairing of the form (h,s)
+                (2, 1)
+                (3, 2)
+                (3, 3)
+            

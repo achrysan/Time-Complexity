@@ -1,0 +1,53 @@
+Design a O(nlog(n)) algorithm for the following:
+
+The TennisSuperVillian is hell-bent on destroying earth. Humans have one last hope: the great tennis player Serena Williams :
+
+
+Serena has two choices to neutralize TennisSuperVillian. The first choice is to nuke TennisSuperVillian’s hideout. The second choice is to defeat the TennisSuperVillian in his own game. Serena has to beat TennisSuperVillian in nn special rallies. The ithith rally (0=i=n-10=i=n-1) needs a given amount of time titi and it has to be finished by time fifi . Each of these rallies are complex and (even) Serena can only play one rally at a time and each rally once it has been started has to be completed without interruption (otherwise TennisSuperVillian wins and the earth gets destroyed). TennisSuperVillian is cunning and has made sure that the only way to defeat him is to finish all rallies ii by time fifi . You should also assume that Serena cannot start any of the rallies before time 0. (Also assume that all the titi and fifi are positive integers.)
+
+Serena also has intelligence that TennisSuperVillian has planned an imminent attack soon and she does not have time to try out both choices.
+
+Obviously Serena wants to avoid the first choice because of the collateral damage. However, as mentioned earlier time is short and Serena needs to decide if she can go with the second choice. During her training, she skipped the class on greedy algorithms. Your task is to design an algorithm for Serena that will help her make her decision in time O(nlog(n))O(nlog?(n)).
+
+Input
+The first line of the input file will have the number nn, indicating the number of rallies
+The next nn lines will have the durations (titi) and deadlines (fifi) for the nn rallies (separated by spaces)
+The index of the line under consideration is the ID of that rally. For instance line 0 of the input file (not including the line displaying nn) has the duration (t0t0) and deadline (f0f0) of rally 0
+            	n		<- Number of rallies Serena has to play
+                t0 f0		<- Duration t0 and deadline f0 of rally 0
+            	t1 f1		<- Duration t1 and deadline f1 of rally 1
+            	t2 f2		<- Duration t2 and deadline f2 of rally 2
+		.
+		.
+		.
+		tn-1 fn-1		<- Duration tn-1 and deadline fn-1 of rally n-1	    
+For example:
+
+        6		<- Serena needs to play 6 rallies
+        5 16		<- Rally 0 has a duration of 5 and needs to finish by 16
+        7 18    	<- Rally 1 has a duration of 7 and needs to finish by 18
+        10 28		<- Rally 2 has a duration of 10 and needs to finish by 28
+        12 45		<- Rally 3 has a duration of 12 and needs to finish by 45
+        4 11		<- Rally 4 has a duration of 4 and needs to finish by 11
+        3 29		<- Rally 5 has a duration of 3 and needs to finish by 29
+	    
+Output
+If you decide that Serena should play out all the rallies, you should output a list of pairs (rally ID, rally start time).
+
+If you decide that the only option Serena has is to nuke TennisSuperVillian's hideout, output an empty list.
+
+            	[(0, s0), (1, s1), .... , (n, sn)]        <- rally 0 starts at time s0
+                                                            rally 1 starts at time s1
+                					    .
+                					    .
+                					    .
+                                                            rally n starts at time sn
+	    
+For example, using the example input from above:
+
+           	[(4, 0), (0, 4), (1, 9), (2, 16), (5, 26), (3, 29)]		<- rally 4 starts at time 0
+                                    						   rally 0 starts at time 4
+                                    						   rally 1 starts at time 9
+                                                                                   rally 2 starts at time 16
+                                    						   rally 5 starts at time 26
+                                                                                   rally 3 starts at time 29

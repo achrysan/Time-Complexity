@@ -1,0 +1,29 @@
+Design a ((m+n)logn) algorithm for the following:
+
+In this problem, we will explore weighted graphs.
+
+We are given a starting node ss and an ending node ee, for some undirected graph GG with nn nodes. Further, each node uu has its own weight, wuwu (0 <= wu <= 50). The graph is formatted as an adjacency list, with the leading number being the node weight, meaning that for each node, uu, we can access all of uu's neighbors, as well as uu's weight. The goal is to output the array of nodes in a shortest path from ss to ee. (The weight of a path P=(u1,…,ul)P=(u1,…,ul) is ?li=1wui?i=1lwui and the shortest path is the one with the minimum weight.)
+
+Input
+The input file is given with the first two lines being the start node and the end node, and the remainder of the file is an adjacency list with node weights for graph GG (we assume that the set of vertices is {0,1,…,n-1}{0,1,…,n-1}). The adjacency list assumes that the current node is the index of the line under consideration. For instance the third line of the input file has the list of all nodes adjacent to node 0 (the first two being the start and end nodes) and so on.
+
+                s   <- Staring node (some node between u0 and un-1).
+                e   <- Ending node (some node between u0 and un-1).
+            	w0 u1 u4 u6	<- All nodes that share edges with u0
+            	w1 u3 uu		<- All nodes that share edges with u1
+		w2 u0		<- All nodes that share edges with u2
+		.
+		.
+		.
+		wn-1 u0 u4 u2 u7 	<- All nodes that share edges with un-1
+	    
+Output
+The output should be a list/ArrayList/vector (depending on your language of choice) where every 2 adjacent nodes have an edge between them. The 1st node in the output should be startNode and the last node in the output should be endNode. For example, if startNode was 2 and endNode was 7, and the minimum path between them is 2-9-8-4-7 then you should output [2, 9, 8, 4, 7]. If there is no path between the start and end nodes, output an empty output.
+
+            	[s, n0 n1 n2... nm, e]   		<- Each entry is a node on the shortest path between 's' and 'e'
+
+	    
+ Note
+There is no guarantee that the graph is completely connected. In the situation where a node can not be reached from the starting node, you should return an empty array.
+ Note
+For this problem there can be multiple shortest paths so it is possible that your solution (assuming it is correct) might not match the corresponding sample output.
